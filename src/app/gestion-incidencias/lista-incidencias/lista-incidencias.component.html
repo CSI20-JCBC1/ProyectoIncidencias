@@ -1,0 +1,16 @@
+<h1 style="text-align:center"> Listado de Incidencias Registradas</h1>
+
+
+<ul *ngFor="let incidencia of listaIncidencias" class="list-group">
+    <br>
+    <div class="contenedor text-center">
+        <a routerLink="/gestionIncidencias/gestionIncidencias/{{incidencia.id}}" class="btn btn-secondary" >
+            Persona: {{incidencia.data.persona}} // Descripcion: {{incidencia.data.descripcion}} 
+	    </a>
+    </div>
+</ul>
+<br>
+<br>
+<div class="text-center">
+    <button type="button" class="btn btn-secondary" (click)="goBack()">Volver</button> 
+</div>

@@ -1,0 +1,39 @@
+
+<section class="m-5">
+    <div class=" m-5">
+      <form class="text-center" [formGroup]="incidenciaForm" >
+        <div class="mb-3 d-flex justify-content-center">
+          <input class="form-control" placeholder="Persona" type="text" formControlName="persona" id="publico" readonly>
+        </div>
+        <div class="mb-3 d-flex justify-content-center">
+          <input class="form-control" placeholder="Lugar" type="text" formControlName="lugar" id="publico" readonly>
+        </div>
+        <div class="mb-3 d-flex justify-content-center">
+          <input class="form-control" placeholder="Descripcion" type="text" formControlName="descripcion" id="publico" readonly>
+        </div>
+        <div class="mb-3 d-flex justify-content-center">
+          <input class="form-control" placeholder="Fecha" type="text" formControlName="fecha" id="publico" readonly>
+        </div>
+        <div class="mb-3 d-flex justify-content-center">
+            <input class="form-control" placeholder="Solucion" type="text" formControlName="solucion" id="publico" readonly>
+          </div>
+          <div><h2>A continuación introduzca o modifique el estado</h2></div>
+          <div class="mb-3 d-flex justify-content-center">
+            <select class="form-control" placeholder="Estado" formControlName="estado">
+                <option>Leida</option>             
+                <option>Asignada</option>
+                <option>Comenzada</option>
+                <option>Terminada</option>
+            </select>
+            <!--<input class="form-control" formControlName="estado">-->
+        </div>
+        <div class="mb-3 d-flex justify-content-center">
+            <input class="form-control" placeholder="Revisada" type="text" formControlName="revisada" id="publico" readonly>
+          </div>
+        <div class="mt-3 mb-3 pb-2">
+          <button class="btn btn-primary mb-2" type="button" class="btn btn-success" (click)="actualizarEstado()"> Actualizar incidencia </button>
+          <button type="button" class="btn btn-secondary" (click)="goBack()">Volver</button> 
+        </div>
+      </form>
+    </div>
+  </section>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ejercicio-csi-2022-juancarlos": {
+      "hosting": {
+        "proyectoIncidencias": [
+          "ejercicio-csi-2022-juancarlos"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ejercicio-csi-2022-juancarlos"
+  }
+}
