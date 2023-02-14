@@ -49,10 +49,10 @@ export class RevisionIncidenciasComponent implements OnInit {
       
       this.firebase.update("incidencias",this.documentId, this.incidencia).then(
         () => {
-          alert("Registro actualizado");
+          alert("Revisión actualizada");
         },
         (error) => {
-          alert("¡A ocurrido un error!");
+          alert("Error");
           console.log(error);
         }
       );

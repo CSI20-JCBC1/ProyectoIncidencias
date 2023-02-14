@@ -49,10 +49,10 @@ export class GestionIncidenciasComponent implements OnInit {
       
       this.firebase.update("incidencias",this.documentId, this.incidencia).then(
         () => {
-          alert("Registro actualizado");
+          alert("Incidencia actualizada con exito");
         },
         (error) => {
-          alert("¡A ocurrido un error!");
+          alert("Error");
           console.log(error);
         }
       );
@@ -61,6 +61,20 @@ export class GestionIncidenciasComponent implements OnInit {
       this.incidenciaForm.reset();
       alert("Complete los campos");
     }
+  }
+
+  deleteIncidencia(){
+    this.firebase.delete('incidencias', this.documentId).then(
+      () => {
+        alert("Incidencia borrada con exito");
+        this.goBack();
+      },
+      (error) => {
+        alert("Error");
+        console.log(error);
+      }
+    );
+    
   }
 
   goBack(): void {
