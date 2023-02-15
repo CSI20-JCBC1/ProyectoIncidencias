@@ -1,8 +1,10 @@
 
 <section class="m-5">
-    <div class=" m-5">
-      <form class="text-center" [formGroup]="incidenciaForm" >
-        <div class="mb-3 d-flex justify-content-center">
+    <div class=" m-5 row g-3 align-items-center">
+      <form class="text-center border border-2 rounded" [formGroup]="incidenciaForm" >
+        <br>
+        <div><h1>Gestion Incidencias</h1></div>
+        <div class="mb-3 d-flex justify-content-center ">
           <input class="form-control" placeholder="Persona" type="text" formControlName="persona" id="publico" readonly>
         </div>
         <div class="mb-3 d-flex justify-content-center">
@@ -17,7 +19,7 @@
         <div class="mb-3 d-flex justify-content-center">
             <input class="form-control" placeholder="Solucion" type="text" formControlName="solucion" id="publico" readonly>
           </div>
-          <div><h2>A continuación introduzca o modifique el estado</h2></div>
+          <div><h3>A continuación introduzca o modifique el estado</h3></div>
           <div class="mb-3 d-flex justify-content-center">
             <select class="form-control" placeholder="Estado" formControlName="estado">
                 <option>Leida</option>             

@@ -1,11 +1,12 @@
 <section>
-    <div class="text-center mt-5">
-      <h1>Introduccion incidencia</h1>
-    </div>
+    
   </section>
   <section class="m-5">
-    <div class=" m-5">
-      <form class="text-center" [formGroup]="incidenciaForm" (submit)="crearIncidencias()">
+    <div class=" m-5 row g-3 align-items-center">
+      <form class="text-center border border-2 rounded" [formGroup]="incidenciaForm" (submit)="crearIncidencias()">
+        <div class="m-5 row g-3 align-items-center">
+          <h1>Introduccion incidencia</h1>
+        </div>
         <div class="mb-3 d-flex justify-content-center">
           <input class="form-control" placeholder="Persona" type="text" formControlName="persona" id="publico">
         </div>
