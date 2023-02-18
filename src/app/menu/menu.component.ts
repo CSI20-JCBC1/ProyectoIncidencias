@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private firebase: FirebaseService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
+
+  onClick() {
+    this.firebase.logout()
+      .then(() => {
+        this.router.navigate(['/register']);
+      })
+      .catch(error => console.log(error));
+  }
+  
+
+
 
 }

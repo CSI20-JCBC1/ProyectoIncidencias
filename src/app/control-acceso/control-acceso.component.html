@@ -1,0 +1,28 @@
+<section class="m-5">
+    <div class=" m-5 row g-3 align-items-center">
+      <form class="text-center border border-2 rounded" [formGroup]="usuarioForm" >
+        <br>
+        <div><h1>Gestion Usuarios</h1></div>
+        
+        <div class="mb-3 d-flex justify-content-center">
+          <input class="form-control" placeholder="Email" type="text" formControlName="email" id="publico" readonly>
+        </div>
+        
+          <div><h3>A continuación modifique el rol de usuario</h3></div>
+          <div class="mb-3 d-flex justify-content-center">
+            <select class="form-control"  placeholder="Rol" formControlName="rol">
+                <option type="number">0</option>             
+                <option type="number">1</option>
+                <option type="number">2</option>
+            </select>
+            <!--<input class="form-control" formControlName="estado">-->
+        </div>
+        
+        <div class="mt-3 mb-3 pb-2">
+          <button class="btn btn-primary mb-2" type="button" class="btn btn-success" (click)="actualizarRol()"> Actualizar Rol </button>
+          <button class="btn btn-primary mb-2" type="button" class="btn btn-danger" (click)="deleteUser()"> Borrar Usuario </button>
+          <button type="button" class="btn btn-secondary" (click)="goBack()">Volver</button> 
+        </div>
+      </form>
+    </div>
+  </section>

@@ -14,7 +14,7 @@ export class ListaIncidenciasComponent implements OnInit {
   listaIncidencias: any[] = [];
   revisadas: any[] = [];
   noRevisadas: any[] = [];
-  fontStyle?: string = ' ';
+  listaFiltrado?: string = ' ';
 
   constructor(private firebase: FirebaseService, private location:Location) { }
 

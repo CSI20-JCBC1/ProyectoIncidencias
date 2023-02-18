@@ -1,0 +1,16 @@
+<h1 style="text-align:center"> Listado de Usuarios Registrados</h1>
+
+
+<ul *ngFor="let usuario of listaUsuarios" class="list-group">
+    <br>
+    <div class="contenedor text-center">
+        <a routerLink="/controlAcceso/controlAcceso/{{usuario.id}}" class="btn btn-secondary" >
+           Usuario: {{usuario.data.email}}
+	    </a>
+    </div>
+</ul>
+<br>
+<br>
+<div class="text-center">
+    <button type="button" class="btn btn-secondary" (click)="goBack()">Volver</button> 
+</div>

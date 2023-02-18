@@ -1,0 +1,29 @@
+<div class="text-center container w-50 mt-3">
+    <h1 class="h1">Bienvenido, para poder hacer uso de esta aplicación, debe iniciar sesión obligatoriamente.</h1>
+    <br>
+    <br>
+    <br>
+
+    <form class="form-group container w-50 mt-3 text-center border border-2 rounded" [formGroup]="formReg" >
+        <br>
+        <h2 class="h1">REGISTRO</h2>
+        <br>
+        <div class="mb-3">
+          <label class="form-label">Correo Electrónico</label>
+          <input type="text" class="form-control" id="correo" formControlName="email" placeholder="Email" #email required >
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="contraseña" formControlName="password" placeholder="Contraseña" #password required>
+        </div>
+        <input type="submit" class="btn btn-primary" (click)="Registro(email.value, password.value)" value="Enviar">
+        <br>
+        <br>
+      </form>
+      <br>
+      <br>
+      <div class="text-center container w-50 mt-3" >
+        <a class="btn btn-success" routerLink="../login" >Si ya tiene una cuenta, pulse aquí.</a>
+    </div>
+
+</div>

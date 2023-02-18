@@ -1,6 +1,6 @@
-<h4>FILTRADO DE INCIDENCIAS POR</h4>
-<section class="header-section">
-  <mat-button-toggle-group [(ngModel)]="fontStyle" aria-label="Font Style">
+<br>
+<section class="header-section text-center">
+  <mat-button-toggle-group [(ngModel)]="listaFiltrado" aria-label="Font Style">
     <mat-button-toggle value=" ">TODAS</mat-button-toggle>
     <mat-button-toggle value="revisadas">REVISADAS</mat-button-toggle>
     <mat-button-toggle value="no revisadas">NO REVISADAS</mat-button-toggle>
@@ -11,7 +11,7 @@
 
 <br /><br />
 
-<div *ngIf="fontStyle == ' '" class="text-center">
+<div *ngIf="listaFiltrado == ' '" class="text-center">
   <div *ngFor="let incidencia of listaIncidencias; let i = index">
     <br />
     <div class="contenedor text-center">
@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<div *ngIf="fontStyle == 'revisadas'" class="text-center">
+<div *ngIf="listaFiltrado == 'revisadas'" class="text-center">
   <div *ngFor="let incidencia of revisadas; let i = index">
     <br />
     <div class="contenedor text-center">
@@ -35,7 +35,7 @@
   </div>
 </div>
 
-<div *ngIf="fontStyle == 'no revisadas'" class="text-center">
+<div *ngIf="listaFiltrado == 'no revisadas'" class="text-center">
   <div *ngFor="let incidencia of noRevisadas; let i = index">
     <br />
     <div class="contenedor text-center">
