@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Auth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-  constructor(private afb:
-    AngularFirestore, private auth: Auth) { }
+  
 
+  constructor(private afb: AngularFirestore, private auth: Auth) { }
+ 
 
   login({ email, password }: any) {
     return signInWithEmailAndPassword(this.auth, email, password);
@@ -30,6 +31,11 @@ export class FirebaseService {
   userRol(email: string) {
     console.log(this.afb.collection('usuarios', ref => ref.where("email", "==", email)).snapshotChanges());
     return this.afb.collection('usuarios', ref => ref.where("email", "==", email)).snapshotChanges()
+  }
+
+  userEmail(){
+    const usuario = this.auth.currentUser;
+    return usuario?.email?.toString();
   }
 
   getAll(coleccion: string) {

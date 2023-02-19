@@ -82,5 +82,7 @@ export class GestionIncidenciasComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  
   
 }

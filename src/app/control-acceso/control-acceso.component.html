@@ -8,14 +8,10 @@
           <input class="form-control" placeholder="Email" type="text" formControlName="email" id="publico" readonly>
         </div>
         
-          <div><h3>A continuación modifique el rol de usuario</h3></div>
+          <div><h3>A continuación modifique el rol de usuario [0-2]</h3></div>
           <div class="mb-3 d-flex justify-content-center">
-            <select class="form-control"  placeholder="Rol" formControlName="rol">
-                <option type="number">0</option>             
-                <option type="number">1</option>
-                <option type="number">2</option>
-            </select>
-            <!--<input class="form-control" formControlName="estado">-->
+            <input type="number" class="form-control" formControlName="rol" id="publico"
+            min="0" max="2">
         </div>
         
         <div class="mt-3 mb-3 pb-2">

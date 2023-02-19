@@ -18,6 +18,7 @@ export class ControlAccesoComponent implements OnInit {
   //Formulario reactivo
   usuarioForm = this.fb.group({
     email: [''],
+    password:[''],
     rol: ['', Validators.required],
     
   });
@@ -54,8 +55,7 @@ export class ControlAccesoComponent implements OnInit {
       );
   
     }else{
-      this.usuarioForm.reset();
-      alert("Complete los campos");
+      alert("Asegurese de que el campo del rol no está vacío o que este se encuentre entre el rango de números indicado.");
     }
   }
 

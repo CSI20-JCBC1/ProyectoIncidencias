@@ -9,6 +9,7 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class MenuComponent implements OnInit {
 
+
   constructor(
     private firebase: FirebaseService,
     private router: Router
@@ -24,6 +25,8 @@ export class MenuComponent implements OnInit {
       })
       .catch(error => console.log(error));
   }
+
+ 
   
 
 
