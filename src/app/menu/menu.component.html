@@ -1,10 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<i *ngFor="let i of usuarios">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="i.rol == 0">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand">Gestión incidencias APP</a>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+   
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" routerLink="/crear">Introducción incidencias</a>
@@ -23,9 +26,64 @@
         <button (click)="onClick()" class="btn btn-outline-danger mb-2">Logout</button>
       </form>
     </div>
+    
+  
   </div>
 </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="i.rol == 1">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand">Gestión incidencias APP</a>
+   
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/crear">Introducción incidencias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/gestionIncidencias">Gestión incidencias</a>
+        </li>
+        
+      </ul>
+      <form class="d-flex">
+        <button (click)="onClick()" class="btn btn-outline-danger mb-2">Logout</button>
+      </form>
+    </div>
+    
+  
+  </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="i.rol == 2">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand">Gestión incidencias APP</a>
+   
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/crear">Introducción incidencias</a>
+        </li>
+        
+      </ul>
+      <form class="d-flex">
+        <button (click)="onClick()" class="btn btn-outline-danger mb-2">Logout</button>
+      </form>
+    </div>
+    
+  
+  </div>
+</nav>
+</i>
+
+
 <body>
+  <br>
+  <br>
+  <p class="display-1 text-center" style="color: blanchedalmond;">Bienvenido a APP Incidencias Juan Carlos Bada</p>
   
 </body>
 

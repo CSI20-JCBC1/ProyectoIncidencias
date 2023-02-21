@@ -25,18 +25,18 @@ export class RegisterComponent {
   formReg = this.fb.group({
     email: [],
     password: [],
-    rol: [1],
+    rol: [2],
   });
 
   
 
-  Registro(email: string, password: string) {
+  registroUsuario(email: string, password: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         window.alert('Registro completado');
         console.log(result.user);
-        this.firebase.CrearUsuario(this.formReg.value)
+        this.firebase.crearUsuario(this.formReg.value)
         this.router.navigate(["/login"])
       })
       .catch((error) => {

@@ -15,7 +15,12 @@ export class MenuComponent implements OnInit {
     private router: Router
   ) { }
 
+  correo: any = this.firebase.emailUsuarioLogueado();
+  usuarios: any[] = [];
+
   ngOnInit(): void {
+    console.log(this.usuarios)
+    this.rol();
   }
 
   onClick() {
@@ -26,6 +31,20 @@ export class MenuComponent implements OnInit {
       .catch(error => console.log(error));
   }
 
+  rol(){
+    this.firebase.usuarioLogueado(this.correo).subscribe(
+      (resp: any) => {
+        this.usuarios = [];
+
+        resp.forEach((incidenciasSnapshot: any) => {
+          this.usuarios.push(
+            
+              {...incidenciasSnapshot.payload.doc.data() }           
+            
+          )
+        });
+      })
+  }
  
   
 

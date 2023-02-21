@@ -23,19 +23,18 @@ export class FirebaseService {
     return signOut(this.auth);
   }
 
-  CrearUsuario(data: any) {
+  crearUsuario(data: any) {
     return this.afb.collection("usuarios").add(data);
   }
 
 
-  userRol(email: string) {
-    console.log(this.afb.collection('usuarios', ref => ref.where("email", "==", email)).snapshotChanges());
-    return this.afb.collection('usuarios', ref => ref.where("email", "==", email)).snapshotChanges()
-  }
-
-  userEmail(){
+  emailUsuarioLogueado(){
     const usuario = this.auth.currentUser;
     return usuario?.email?.toString();
+  }
+
+  usuarioLogueado(email: string) {
+    return this.afb.collection('usuarios', ref => ref.where('email', '==', email)).snapshotChanges()
   }
 
   getAll(coleccion: string) {

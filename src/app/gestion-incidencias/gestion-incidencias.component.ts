@@ -13,6 +13,9 @@ export class GestionIncidenciasComponent implements OnInit {
   //Propiedades
   documentId?: any;
   incidencia: any;
+  correo: any = this.firebase.emailUsuarioLogueado();
+  usuarios: any[] = [];
+
 
 
   //Formulario reactivo
@@ -77,6 +80,20 @@ export class GestionIncidenciasComponent implements OnInit {
     
   }
 
+  rol(){
+    this.firebase.usuarioLogueado(this.correo).subscribe(
+      (resp: any) => {
+        this.usuarios = [];
+
+        resp.forEach((incidenciasSnapshot: any) => {
+          this.usuarios.push(
+            
+              {...incidenciasSnapshot.payload.doc.data() }           
+            
+          )
+        });
+      })
+  }
   
 
   goBack(): void {

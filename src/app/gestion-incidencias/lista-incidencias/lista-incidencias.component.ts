@@ -12,6 +12,8 @@ import { Location } from '@angular/common';
 export class ListaIncidenciasComponent implements OnInit {
 
   listaIncidencias: any[] = [];
+  correo: any = this.firebase.emailUsuarioLogueado();
+  usuarios: any[] = [];
 
   constructor(private firebase: FirebaseService, private location: Location) { }
 
@@ -30,6 +32,21 @@ export class ListaIncidenciasComponent implements OnInit {
         
       });
     })
+  }
+
+  rol(){
+    this.firebase.usuarioLogueado(this.correo).subscribe(
+      (resp: any) => {
+        this.usuarios = [];
+
+        resp.forEach((incidenciasSnapshot: any) => {
+          this.usuarios.push(
+            
+              {...incidenciasSnapshot.payload.doc.data() }           
+            
+          )
+        });
+      })
   }
 
   goBack(): void {
