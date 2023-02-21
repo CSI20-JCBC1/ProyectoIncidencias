@@ -13,6 +13,8 @@ export class ControlAccesoComponent implements OnInit {
 
   documentId?: any;
   incidencia: any;
+  correo: any = this.firebase.emailUsuarioLogueado();
+  usuarios: any[] = [];
 
 
   //Formulario reactivo
@@ -36,6 +38,7 @@ export class ControlAccesoComponent implements OnInit {
     this.firebase.getOne("usuarios",this.documentId).subscribe((resp) => {
       this.incidencia = resp.payload.data();
       this.usuarioForm.setValue(this.incidencia);
+      this.rol();
     });
   }
 
@@ -73,6 +76,20 @@ export class ControlAccesoComponent implements OnInit {
     
   }
 
+  rol(){
+    this.firebase.usuarioLogueado(this.correo).subscribe(
+      (resp: any) => {
+        this.usuarios = [];
+
+        resp.forEach((incidenciasSnapshot: any) => {
+          this.usuarios.push(
+            
+              {...incidenciasSnapshot.payload.doc.data() }           
+            
+          )
+        });
+      })
+  }
   
 
   goBack(): void {

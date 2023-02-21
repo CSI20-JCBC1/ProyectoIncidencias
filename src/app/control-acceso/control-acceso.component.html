@@ -1,4 +1,5 @@
-<section class="m-5">
+<i *ngFor="let i of usuarios">
+<div *ngIf="i.rol==0">
     <div class=" m-5 row g-3 align-items-center">
       <form class="text-center border border-2 rounded" [formGroup]="usuarioForm" >
         <br>
@@ -21,4 +22,13 @@
         </div>
       </form>
     </div>
-  </section>
+  </div>
+  <div class=" m-5 row g-3 align-items-center" *ngIf="i.rol == 1||i.rol==2">
+    <br>
+    <br>
+    <br>
+    <br>
+    <p style="color: red; " class="h1 text-center">No tiene acceso a esta página debido  su rol de usuario</p>
+    <button type="button" class="btn btn-danger" (click)="goBack()">Volver</button>
+  </div>
+</i>

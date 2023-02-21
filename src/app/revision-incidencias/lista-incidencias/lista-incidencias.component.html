@@ -1,57 +1,73 @@
-<br>
-<section class="header-section text-center">
-  <mat-button-toggle-group [(ngModel)]="listaFiltrado" aria-label="Font Style">
-    <mat-button-toggle value=" ">TODAS</mat-button-toggle>
-    <mat-button-toggle value="revisadas">REVISADAS</mat-button-toggle>
-    <mat-button-toggle value="no revisadas">NO REVISADAS</mat-button-toggle>
-  </mat-button-toggle-group>
-</section>
-<br>
+<i *ngFor="let i of usuarios">
+  <div *ngIf="i.rol==0">
+    
+    <br>
+    <section class="header-section text-center">
+      <mat-button-toggle-group [(ngModel)]="listaFiltrado" aria-label="Font Style">
+        <mat-button-toggle value=" ">TODAS</mat-button-toggle>
+        <mat-button-toggle value="revisadas">REVISADAS</mat-button-toggle>
+        <mat-button-toggle value="no revisadas">NO REVISADAS</mat-button-toggle>
+      </mat-button-toggle-group>
+    </section>
+    <br>
 
-<u><h2 style="text-align: center">LISTA DE INCIDENCIAS</h2></u>
-<h3 style="text-align: center">(Pulse para editar su estado de revision)</h3>
+    <u>
+      <h2 style="text-align: center">LISTA DE INCIDENCIAS</h2>
+    </u>
+    <h3 style="text-align: center">(Pulse para editar su estado de revision)</h3>
 
-<br /><br />
+    <br /><br />
 
-<div *ngIf="listaFiltrado == ' '" class="text-center">
-  <div *ngFor="let incidencia of listaIncidencias; let i = index">
+    <div *ngIf="listaFiltrado == ' '" class="text-center">
+      <div *ngFor="let incidencia of listaIncidencias; let i = index">
+        <br />
+        <div class="contenedor text-center">
+          <a routerLink="/revisionIncidencias/revisionIncidencias/{{incidencia.id}}" class="btn btn-outline-success">
+            Persona: {{ incidencia.data.persona }} // Lugar: {{ incidencia.data.lugar }} // Descripcion: {{
+            incidencia.data.descripcion }}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="listaFiltrado == 'revisadas'" class="text-center">
+      <div *ngFor="let incidencia of revisadas; let i = index">
+        <br />
+        <div class="contenedor text-center">
+          <a routerLink="/revisionIncidencias/revisionIncidencias/{{incidencia.id}}" class="btn btn-outline-success">
+            Persona: {{ incidencia.data.persona }} // Lugar: {{ incidencia.data.lugar }} // Descripcion: {{
+            incidencia.data.descripcion }}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="listaFiltrado == 'no revisadas'" class="text-center">
+      <div *ngFor="let incidencia of noRevisadas; let i = index">
+        <br />
+        <div class="contenedor text-center">
+          <a routerLink="/revisionIncidencias/revisionIncidencias/{{incidencia.id}}" class="btn btn-outline-success">
+            Persona: {{ incidencia.data.persona }} // Lugar: {{ incidencia.data.lugar }} // Descripcion: {{
+            incidencia.data.descripcion }}
+          </a>
+        </div>
+      </div>
+    </div>
+
     <br />
-    <div class="contenedor text-center">
-      <a
-        routerLink="/revisionIncidencias/revisionIncidencias/{{incidencia.id}}"class="btn btn-outline-success">
-      Persona: {{ incidencia.data.persona }} // Lugar: {{ incidencia.data.lugar }} // Descripcion: {{ incidencia.data.descripcion }}
-      </a>
+    <div class="text-center">
+      <button type="button" class="btn btn-light" (click)="goBack()">
+        Volver
+      </button>
     </div>
   </div>
-</div>
 
-<div *ngIf="listaFiltrado == 'revisadas'" class="text-center">
-  <div *ngFor="let incidencia of revisadas; let i = index">
-    <br />
-    <div class="contenedor text-center">
-      <a
-        routerLink="/revisionIncidencias/revisionIncidencias/{{incidencia.id}}"class="btn btn-outline-success">
-      Persona: {{ incidencia.data.persona }} // Lugar: {{ incidencia.data.lugar }} // Descripcion: {{ incidencia.data.descripcion }}
-      </a>
-    </div>
+  <div class=" m-5 row g-3 align-items-center" *ngIf="i.rol == 1||i.rol==2">
+    <br>
+    <br>
+    <br>
+    <br>
+    <p style="color: red; " class="h1 text-center">No tiene acceso a esta página debido su rol de usuario</p>
+    <button type="button" class="btn btn-danger" (click)="goBack()">Volver</button>
   </div>
-</div>
-
-<div *ngIf="listaFiltrado == 'no revisadas'" class="text-center">
-  <div *ngFor="let incidencia of noRevisadas; let i = index">
-    <br />
-    <div class="contenedor text-center">
-      <a
-        routerLink="/revisionIncidencias/revisionIncidencias/{{incidencia.id}}"class="btn btn-outline-success">
-      Persona: {{ incidencia.data.persona }} // Lugar: {{ incidencia.data.lugar }} // Descripcion: {{ incidencia.data.descripcion }}
-      </a>
-    </div>
-  </div>
-</div>
-
-<br />
-<div class="text-center">
-  <button type="button" class="btn btn-light" (click)="goBack()">
-    Volver
-  </button>
-</div>
+</i>

@@ -19,6 +19,7 @@ export class ListaIncidenciasComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAll();
+    this.rol();
   }
 
   getAll(){ 

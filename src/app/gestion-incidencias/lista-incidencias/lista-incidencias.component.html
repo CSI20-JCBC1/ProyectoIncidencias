@@ -1,17 +1,31 @@
-<u><h1 style="text-align:center"> Listado de Incidencias Registradas</h1></u>
-<h3 style="text-align: center">(Pulse para editar su estado)</h3>
+<i *ngFor="let i of usuarios">
+    <div *ngIf="i.rol == 0||i.rol == 1">
+        <u>
+            <h1 style="text-align:center"> Listado de Incidencias Registradas</h1>
+        </u>
+        <h3 style="text-align: center">(Pulse para editar su estado)</h3>
 
 
-<ul *ngFor="let incidencia of listaIncidencias" class="list-group">
-    <br>
-    <div class="contenedor text-center">
-        <a routerLink="/gestionIncidencias/gestionIncidencias/{{incidencia.id}}" class="btn btn-outline-success" >
-            Persona: {{incidencia.data.persona}} // Descripcion: {{incidencia.data.descripcion}} 
-	    </a>
+        <ul *ngFor="let incidencia of listaIncidencias" class="list-group">
+            <br>
+            <div class="contenedor text-center">
+                <a routerLink="/gestionIncidencias/gestionIncidencias/{{incidencia.id}}"
+                    class="btn btn-outline-success">
+                    Persona: {{incidencia.data.persona}} // Descripcion: {{incidencia.data.descripcion}}
+                </a>
+            </div>
+        </ul>
+        <br>
+        <br>
+        <div class="text-center">
+            <button type="button" class="btn btn-light" (click)="goBack()">Volver</button>
+        </div>
     </div>
-</ul>
-<br>
-<br>
-<div class="text-center">
-    <button type="button" class="btn btn-light" (click)="goBack()">Volver</button> 
-</div>
+    <div class=" m-5 row g-3 align-items-center" *ngIf="i.rol == 2">
+        <br>
+        <br>
+        <br>
+        <br>
+        <p style="color: red; " class="h1 text-center">No tiene acceso a esta página debido  su rol de usuario</p>
+        <button type="button" class="btn btn-danger" (click)="goBack()">Volver</button>
+      </div>

@@ -1,41 +1,57 @@
-<section class="m-5">
-    <div class=" m-5 row g-3 align-items-center">
-      <form class="text-center border border-2 rounded" [formGroup]="incidenciaForm" >
-        <br>
-        <div><h1>Revisión Incidencias</h1></div>
-        <div class="mb-3 d-flex justify-content-center">
-          <input class="form-control" placeholder="Persona" type="text" formControlName="persona" id="publico" readonly>
-        </div>
-        <div class="mb-3 d-flex justify-content-center">
-          <input class="form-control" placeholder="Lugar" type="text" formControlName="lugar" id="publico" readonly>
-        </div>
-        <div class="mb-3 d-flex justify-content-center">
-          <input class="form-control" placeholder="Descripcion" type="text" formControlName="descripcion" id="publico" readonly>
-        </div>
-        <div class="mb-3 d-flex justify-content-center">
-          <input class="form-control" placeholder="Fecha" type="text" formControlName="fecha" id="publico" readonly>
-        </div>
-        <div class="mb-3 d-flex justify-content-center">
-            <input class="form-control" placeholder="Solucion" type="text" formControlName="solucion" id="publico" readonly>
-          </div>
-          <div class="mb-3 d-flex justify-content-center">
-            <input class="form-control" placeholder="Estado" type="text" formControlName="estado" id="publico" readonly>
-          </div>
-          
-          <div><h4>(Este campo cambiarar al pulsar actualizar inciddencia en función de si se encuentra revisada o no)</h4></div>
-          <div class="mb-3 d-flex justify-content-center">
-            <input class="form-control" placeholder="Revisada" type="text" formControlName="revisada" id="publico" readonly>
-          </div>
-          
-          <div class="form-check form-switch mb-3">
-            <input type="checkbox" class="btn-check" id="btn-check" autocomplete="off" formControlName="revisada">
-            <label class="btn btn-primary" for="btn-check">Revisada</label>
-          </div>
-          <div><h4>(Revisada azul oscuro/No revisada azul claro)</h4></div>
-        <div class="mt-3 mb-3 pb-2">
-          <button class="btn btn-primary mb-2" type="button" class="btn btn-success" (click)="actualizarEstado()"> Actualizar incidencia </button>
-          <button type="button" class="btn btn-secondary" (click)="goBack()">Volver</button> 
-        </div>
-      </form>
-    </div>
-  </section>
+<i *ngFor="let i of usuarios">
+  <div class=" m-5 row g-3 align-items-center" *ngIf="i.rol==0">
+    <form class="text-center border border-2 rounded" [formGroup]="incidenciaForm">
+      <br>
+      <div>
+        <h1>Revisión Incidencias</h1>
+      </div>
+      <div class="mb-3 d-flex justify-content-center">
+        <input class="form-control" placeholder="Persona" type="text" formControlName="persona" id="publico" readonly>
+      </div>
+      <div class="mb-3 d-flex justify-content-center">
+        <input class="form-control" placeholder="Lugar" type="text" formControlName="lugar" id="publico" readonly>
+      </div>
+      <div class="mb-3 d-flex justify-content-center">
+        <input class="form-control" placeholder="Descripcion" type="text" formControlName="descripcion" id="publico"
+          readonly>
+      </div>
+      <div class="mb-3 d-flex justify-content-center">
+        <input class="form-control" placeholder="Fecha" type="text" formControlName="fecha" id="publico" readonly>
+      </div>
+      <div class="mb-3 d-flex justify-content-center">
+        <input class="form-control" placeholder="Solucion" type="text" formControlName="solucion" id="publico" readonly>
+      </div>
+      <div class="mb-3 d-flex justify-content-center">
+        <input class="form-control" placeholder="Estado" type="text" formControlName="estado" id="publico" readonly>
+      </div>
+
+      <div>
+        <h4>(Este campo cambiarar al pulsar actualizar inciddencia en función de si se encuentra revisada o no)</h4>
+      </div>
+      <div class="mb-3 d-flex justify-content-center">
+        <input class="form-control" placeholder="Revisada" type="text" formControlName="revisada" id="publico" readonly>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <input type="checkbox" class="btn-check" id="btn-check" autocomplete="off" formControlName="revisada">
+        <label class="btn btn-primary" for="btn-check">Revisada</label>
+      </div>
+      <div>
+        <h4>(Revisada azul oscuro/No revisada azul claro)</h4>
+      </div>
+      <div class="mt-3 mb-3 pb-2">
+        <button class="btn btn-primary mb-2" type="button" class="btn btn-success" (click)="actualizarEstado()">
+          Actualizar incidencia </button>
+        <button type="button" class="btn btn-secondary" (click)="goBack()">Volver</button>
+      </div>
+    </form>
+  </div>
+  <div class=" m-5 row g-3 align-items-center" *ngIf="i.rol == 1||i.rol==2">
+    <br>
+    <br>
+    <br>
+    <br>
+    <p style="color: red; " class="h1 text-center">No tiene acceso a esta página debido  su rol de usuario</p>
+    <button type="button" class="btn btn-danger" (click)="goBack()">Volver</button>
+  </div>
+</i>

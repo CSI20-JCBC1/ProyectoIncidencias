@@ -15,6 +15,9 @@ export class ListaIncidenciasComponent implements OnInit {
   revisadas: any[] = [];
   noRevisadas: any[] = [];
   listaFiltrado?: string = ' ';
+  correo: any = this.firebase.emailUsuarioLogueado();
+  usuarios: any[] = [];
+  
 
   constructor(private firebase: FirebaseService, private location:Location) { }
 
@@ -22,6 +25,7 @@ export class ListaIncidenciasComponent implements OnInit {
     this.getAll();
     this.getAllRevisadas();
     this.getAllNoRevisadas();
+    this.rol();
   }
 
   getAll(){ 
@@ -61,6 +65,20 @@ export class ListaIncidenciasComponent implements OnInit {
         
       });
     })
+  }
+  rol(){
+    this.firebase.usuarioLogueado(this.correo).subscribe(
+      (resp: any) => {
+        this.usuarios = [];
+
+        resp.forEach((incidenciasSnapshot: any) => {
+          this.usuarios.push(
+            
+              {...incidenciasSnapshot.payload.doc.data() }           
+            
+          )
+        });
+      })
   }
 
   goBack(): void {

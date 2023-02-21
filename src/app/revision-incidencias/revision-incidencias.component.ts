@@ -13,6 +13,8 @@ export class RevisionIncidenciasComponent implements OnInit {
   //Propiedades
   documentId?: any;
   incidencia: any;
+  correo: any = this.firebase.emailUsuarioLogueado();
+  usuarios: any[] = [];
   
   
   //Formulario reactivo
@@ -39,6 +41,7 @@ export class RevisionIncidenciasComponent implements OnInit {
     this.firebase.getOne("incidencias",this.documentId).subscribe((resp) => {
       this.incidencia = resp.payload.data();
       this.incidenciaForm.setValue(this.incidencia);
+      this.rol();
     });
   }
   
@@ -61,6 +64,20 @@ export class RevisionIncidenciasComponent implements OnInit {
       this.incidenciaForm.reset();
       alert("Complete los campos");
     }
+  }
+  rol(){
+    this.firebase.usuarioLogueado(this.correo).subscribe(
+      (resp: any) => {
+        this.usuarios = [];
+
+        resp.forEach((incidenciasSnapshot: any) => {
+          this.usuarios.push(
+            
+              {...incidenciasSnapshot.payload.doc.data() }           
+            
+          )
+        });
+      })
   }
   
   goBack(): void {

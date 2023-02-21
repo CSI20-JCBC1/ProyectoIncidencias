@@ -42,6 +42,7 @@ export class GestionIncidenciasComponent implements OnInit {
     this.firebase.getOne("incidencias",this.documentId).subscribe((resp) => {
       this.incidencia = resp.payload.data();
       this.incidenciaForm.setValue(this.incidencia);
+      this.rol();
     });
   }
 

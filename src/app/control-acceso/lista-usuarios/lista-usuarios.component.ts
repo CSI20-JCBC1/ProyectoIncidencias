@@ -9,11 +9,14 @@ import { Location } from '@angular/common';
 })
 export class ListaUsuariosComponent implements OnInit {
   listaUsuarios: any[] = [];
-
+  correo: any = this.firebase.emailUsuarioLogueado();
+  usuarios: any[] = [];
+  
   constructor(private firebase: FirebaseService, private location: Location) { }
 
   ngOnInit(): void {
     this.getAll();
+    this.rol();
   }
 
   getAll(){ 
@@ -29,6 +32,20 @@ export class ListaUsuariosComponent implements OnInit {
     })
   }
 
+  rol(){
+    this.firebase.usuarioLogueado(this.correo).subscribe(
+      (resp: any) => {
+        this.usuarios = [];
+
+        resp.forEach((incidenciasSnapshot: any) => {
+          this.usuarios.push(
+            
+              {...incidenciasSnapshot.payload.doc.data() }           
+            
+          )
+        });
+      })
+  }
   goBack(): void {
     this.location.back();
   }
