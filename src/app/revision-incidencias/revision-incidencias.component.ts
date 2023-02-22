@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 import { Location } from '@angular/common';
 
@@ -32,7 +32,9 @@ export class RevisionIncidenciasComponent implements OnInit {
     private firebase: FirebaseService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private location: Location
+    private location: Location,
+    private router: Router
+    
   ) {}
   
   ngOnInit(): void {
@@ -80,6 +82,14 @@ export class RevisionIncidenciasComponent implements OnInit {
       })
   }
   
+  onClick() {
+    this.firebase.logout()
+      .then(() => {
+        this.router.navigate(['/login']);
+      })
+      .catch(error => console.log(error));
+  }
+
   goBack(): void {
     this.location.back();
   }

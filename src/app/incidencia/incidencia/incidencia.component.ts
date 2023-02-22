@@ -18,10 +18,11 @@ export class IncidenciaComponent {
   ) {}
   
   documentId: string = '';
+  correo: any = this.firebase.emailUsuarioLogueado();
 
   
   incidenciaForm = this.fb.group({
-    persona: ['', Validators.required],
+    persona: [this.correo],
     lugar: ['', Validators.required],
     descripcion: ['', Validators.required],
     fecha: ['', Validators.required],

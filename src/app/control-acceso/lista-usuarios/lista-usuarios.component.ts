@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -12,7 +13,7 @@ export class ListaUsuariosComponent implements OnInit {
   correo: any = this.firebase.emailUsuarioLogueado();
   usuarios: any[] = [];
   
-  constructor(private firebase: FirebaseService, private location: Location) { }
+  constructor(private firebase: FirebaseService, private location: Location, private router:Router) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -46,6 +47,15 @@ export class ListaUsuariosComponent implements OnInit {
         });
       })
   }
+
+  onClick() {
+    this.firebase.logout()
+      .then(() => {
+        this.router.navigate(['/login']);
+      })
+      .catch(error => console.log(error));
+  }
+
   goBack(): void {
     this.location.back();
   }

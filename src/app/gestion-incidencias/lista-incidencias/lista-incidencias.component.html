@@ -21,11 +21,21 @@
             <button type="button" class="btn btn-light" (click)="goBack()">Volver</button>
         </div>
     </div>
-    <div class=" m-5 row g-3 align-items-center" *ngIf="i.rol == 2">
+    <div class="text-center" *ngIf="i.rol == 2">
         <br>
-        <br>
-        <br>
-        <br>
-        <p style="color: red; " class="h1 text-center">No tiene acceso a esta página debido  su rol de usuario</p>
-        <button type="button" class="btn btn-danger" (click)="goBack()">Volver</button>
+      <br>
+      <br>
+      <br>
+      <div class="m-5 row g-3 align-items-center alert alert-danger" role="alert">
+        <h4 class="alert-heading">Nivel de acceso denegado.</h4>
+        <p>Su usuario no cumple los requisitos para acceder a la ventana de gestión de incidencias, es decir,
+          su rol de usuario no tiene acceso.
+        </p>
+        <hr>
+        <p class="mb-0">Para poder acceder a esta ventana, inicie sesión con un usuario que si tenga permiso a este ventana</p>
+      </div>
+      <button type="button" class="btn btn-danger" (click)="goBack()">Volver</button>
+      <br>
+      <br>
+      <button type="button" class="btn btn-success" (click)="onClick()">Iniciar sesión con usuario con permiso</button>
       </div>
